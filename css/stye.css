@@ -1,0 +1,78 @@
+/* ======= Start Global Rules ======= */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+--root {
+  --main-color: #2196f3;
+  --main-color-alt: #1787e0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Cairo", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto; /* عشان يكون فى النص */
+  margin-right: auto; /* عشان يكون فى النص */
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* ======= End Global Rules ======= */
+/* ========= Start header ========= */
+header {
+  height: 72px;
+  box-shadow: 0 0 10px #eee;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+header .logo {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+header .nav {
+  display: flex;
+}
+header > div > ul > li > a {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+/* ========= End header ========= */

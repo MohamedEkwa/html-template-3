@@ -4,9 +4,10 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
---root {
+:root {
   --main-color: #2196f3;
   --main-color-alt: #1787e0;
+  --main-transition: 0.3s;
 }
 
 html {
@@ -49,30 +50,134 @@ ul {
 }
 /* ======= End Global Rules ======= */
 /* ========= Start header ========= */
+:root {
+  --header-height: 72px;
+}
 header {
-  height: 72px;
-  box-shadow: 0 0 10px #eee;
+  background-color: white;
+  -webkit-box-shadow: 0 0 10px #ddd;
+  -moz-box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #ddd;
+  position: relative;
+  min-height: var(--header-height);
 }
 header .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
+  position: relative;
 }
 header .logo {
-    height: 72px;
-    display: flex;
-    align-items: center;
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--main-color);
+  color: var(--main-color);
+  font-size: 26px;
+  font-weight: bold;
+  height: var(--header-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  header .logo {
+    width: 100%;
+    height: 50px;
+  }
 }
 header .nav {
   display: flex;
 }
-header > div > ul > li > a {
-  height: 72px;
+@media (max-width: 767px) {
+  header .nav {
+    margin: auto;
+  }
+}
+header .nav > li > a {
   display: flex;
+  justify-content: center;
   align-items: center;
+  height: var(--header-height);
+  position: relative;
+  color: black;
   padding: 0 30px;
+  overflow: hidden;
+  /* font-size: 18px; */
+  transition: var(--main-transition);
+}
+@media (max-width: 767px) {
+  header .nav > li > a {
+    padding: 10px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+header > div > ul > li > a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--main-color);
+  top: 0;
+  left: -100%;
+  transition: var(--main-transition);
+}
+header > div > ul > li > a:hover {
+  color: var(--main-color);
+  background-color: #fafafa;
+}
+header > div > ul > li > a:hover::before {
+  left: 0;
 }
 /* ========= End header ========= */
+/* ========= Start landing ========= */
+.landing {
+  position: relative;
+}
+.landing::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ececec;
+  z-index: -1;
+  transform: skewY(-6deg);
+  transform-origin: top left;
+}
+.landing .container {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding-bottom: 120px;
+}
+.landing .text {
+  flex: 1; /********* بحث ***********/
+}
+.landing h1 {
+  font-size: 40px;
+  margin: 0;
+  letter-spacing: -2px;
+}
+.landing p {
+  font-size: 23px;
+  line-height: 1.7;
+  margin: 5px 0 0;
+  color: #666;
+  max-width: 500px;
+}
+.landing .image img {
+  width: 600px;
+  max-width: 100%;
+}
+.landing .go-down {
+  color: var(--main-color);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%); /********* بحث ***********/
+  transition: var(--main-transition);
+}
+.landing .go-down:hover {
+  color: var(--main-color-alt);
+}
+/* ========= End landing ========= */

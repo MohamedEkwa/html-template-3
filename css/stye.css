@@ -1,3 +1,32 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@MohamedEkwa 
+MohamedEkwa
+/
+html-template-3
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+html-template-3/stye.css
+@MohamedEkwa
+MohamedEkwa Add files via upload
+Latest commit 2fc24af 16 seconds ago
+ History
+ 1 contributor
+306 lines (304 sloc)  5.75 KB
+
 /* ======= Start Global Rules ======= */
 * {
   -webkit-box-sizing: border-box;
@@ -91,6 +120,11 @@ header .nav {
     margin: auto;
   }
 }
+header .nav > li:hover .mega-menu{
+  opacity: 1;
+  z-index: 100;
+  top: calc(100% + 1px);
+}
 header .nav > li > a {
   display: flex;
   justify-content: center;
@@ -134,23 +168,56 @@ header .mega-menu {
   background-color: white;
   padding: 30px;
   left: 0;
-  z-index: 100;
+  z-index: -1;
+  opacity: 0;
   display: flex;
   gap: 40px;
   top: calc(100% + 50px);
   transition: top var(--main-transition), opacity var(--main-transition);
 }
+@media (max-width: 767px) {
+  header .mega-menu {
+    flex-direction: column;
+    gap: 0;
+    padding: 5px;
+  }
+}
 header .mega-menu .image img {
   max-width: 100%;
 }
+@media (max-width: 991px) {
+  header .mega-menu .image {
+    display: none;
+  }
+}
 header .mega-menu .links {
+  min-width: 240px;
+  flex: 1;
 }
 header .mega-menu .links li {
+  position: relative;
+}
+header .mega-menu .links li:not(:last-child) {
+  border-bottom: 1px solid #e9e6e6;
+}
+@media (max-width: 767px) {
+  .links > li:nth-child(5) > a {
+    border-bottom: 1px solid #e9e6e6;
+  }
 }
 header .mega-menu .links li::before {
   content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #e9e9e99a;
+  z-index: -1;
+  transition: var(--main-transition);
 }
 header .mega-menu .links li:hover::before {
+  width: 100%;
 }
 header .mega-menu .links li a {
   color: var(--main-color);
@@ -266,3 +333,4 @@ header .mega-menu .links li a svg {
   }
 }
 /* ========= End animation ========= */
+
